@@ -11,9 +11,10 @@ add_executable(Gadget2
         forcetree.c   peano.c gravtree_forcetest.c
         pm_periodic.c pm_nonperiodic.c longrange.c )
 target_link_libraries(Gadget2
-        ${HDF5_C_LIBRARIES} ${HDF5_HL_LIBRARIES}
+        hdf5::hdf5
         MPI::MPI_C gsl gslcblas m
 )
+target_compile_definitions(Gadget2 PRIVATE  HAVE_HDF5)
 if (NOTYPEPREFIX_FFTW)
     target_link_libraries(Gadget2 rfftw_mpi fftw_mpi rfftw fftw)
 elseif(DOUBLEPRECISION_FFTW)
@@ -23,6 +24,7 @@ else()
     target_link_libraries(Gadget2 fftw3 fftw3_mpi)
 endif()
 
+# Various compile-time options
 if (PERIODIC)
     target_compile_definitions(Gadget2 PRIVATE PERIODIC)
 endif()
@@ -39,4 +41,5 @@ if (SYNCHRONIZATION)
     target_compile_definitions(Gadget2 PRIVATE SYNCHRONIZATION)
 endif()
 
+# Install gadget
 install(TARGETS Gadget2 DESTINATION bin)

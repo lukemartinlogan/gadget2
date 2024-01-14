@@ -323,38 +323,12 @@ endif()
 
 # HDF5
 set(GADGET_REQUIRED_HDF5_VERSION 1.14.0)
-set(GADGET_REQUIRED_HDF5_COMPONENTS C)
-find_package(HDF5 ${GADGET_REQUIRED_HDF5_VERSION} CONFIG NAMES hdf5
-        COMPONENTS ${GADGET_REQUIRED_HDF5_COMPONENTS} shared)
-if(HDF5_FOUND)
-    message(STATUS "found HDF5 ${HDF5_VERSION} at ${HDF5_INCLUDE_DIR}")
-    set(HDF5_GADGET_VFD_EXT_INCLUDE_DEPENDENCIES
-            ${HDF5_GADGET_VFD_EXT_INCLUDE_DEPENDENCIES}
-            ${HDF5_INCLUDE_DIR})
-    set(HDF5_GADGET_VFD_EXT_LIB_DEPENDENCIES
-            ${HDF5_GADGET_VFD_EXT_LIB_DEPENDENCIES}
-            ${HDF5_C_SHARED_LIBRARY})
-else()
-    # Allow for HDF5 autotools builds
-    find_package(HDF5 ${GADGET_REQUIRED_HDF5_VERSION} MODULE REQUIRED
-            COMPONENTS ${GADGET_REQUIRED_HDF5_COMPONENTS})
-    if(HDF5_FOUND)
-        set(HDF5_GADGET_VFD_EXT_INCLUDE_DEPENDENCIES
-                ${HDF5_GADGET_VFD_EXT_INCLUDE_DEPENDENCIES}
-                ${HDF5_INCLUDE_DIRS})
-        set(HDF5_GADGET_VFD_EXT_LIB_DEPENDENCIES
-                ${HDF5_GADGET_VFD_EXT_LIB_DEPENDENCIES}
-                ${HDF5_LIBRARIES})
-    else()
-        message(FATAL_ERROR "Could not find HDF5, please set HDF5_DIR (1.13.0) or HDF5_ROOT (1.13.1).")
-    endif()
-endif()
+find_package(HDF5 ${GADGET_REQUIRED_HDF5_VERSION} REQUIRED)
 
 # FFTW
 pkg_check_modules(fftw3 REQUIRED fftw3)
 include_directories(${fftw3_INCLUDE_DIRS})
 link_directories(${fftw3_LIBRARY_DIRS})
-message("LIBS: ${fftw3_LIBRARIES}")
 
 # GSL
 pkg_check_modules(gsl REQUIRED gsl)

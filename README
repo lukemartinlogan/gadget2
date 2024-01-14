@@ -27,6 +27,7 @@ cmake ../ \
 -DSYNCHRONIZATION=ON
 make -j8
 cd ../
+mkdir gassphere
 build/bin/Gadget2 Gadget2/parameterfiles/gassphere.param
 ```
 
