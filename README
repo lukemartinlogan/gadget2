@@ -10,6 +10,28 @@
   *        	                                              *
   *************************************************************
 
+
+Install dependencies with spack
+```
+spack install hdf5@1.14.1 gsl@2.1 fftw@3.3.8
+spack load hdf5@1.14.1 gsl@2.1 fftw@3.3.8
+```
+
+Compile for gassphere.param:
+```
+mkdir build
+cd build
+cmake ../ \
+-DPEANOHILBERT=ON \
+-DWALLCLOCK=ON \
+-DSYNCHRONIZATION=ON
+make -j8
+cd ../
+build/bin/Gadget2 Gadget2/parameterfiles/gassphere.param
+```
+
+
+
   Please see the files in the directory `Documentation' for a 
   detailed discription of this simulation software. There you 
   should find the following files:
@@ -21,4 +43,3 @@
   In addition, please use your browser to access the 
   cross-referenced documentation of the source code, contained 
   in the `html/' subdirectory (open the `index.html' file).
-  
