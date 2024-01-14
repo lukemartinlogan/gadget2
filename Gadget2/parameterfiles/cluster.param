@@ -24,7 +24,7 @@ ResubmitCommand   my-scriptfile
 
 
 ICFormat                 1
-SnapFormat               1
+SnapFormat               3
 ComovingIntegrationOn    1
 
 TypeOfTimestepCriterion  0

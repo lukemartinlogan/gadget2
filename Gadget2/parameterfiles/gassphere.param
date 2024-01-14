@@ -23,7 +23,7 @@ ResubmitCommand   xyz
 % Code options
 
 ICFormat                 1
-SnapFormat               1
+SnapFormat               3
 ComovingIntegrationOn    0
 
 TypeOfTimestepCriterion  0
