@@ -28,11 +28,17 @@ spack load hdf5@1.14.1 gsl@2.1 fftw@2
 ```
 
 # N-GenIC
+
+The dummy glass file contains a grid of 4096 particles. The initial condition
+code ics.param will expand this to be 4096 * 8^3 partciles, where 8 is TileFac.
+
 ```
 mkdir build
 cd build
 cmake ../ -DFFTW_PATH=$(spack find --format "{PREFIX}" fftw@2)
 # NOTE: fftw@2 does not have a nice integration with cmake
+cd ../N-GenIC
+mpirun -n 2 ../build/bin/NGenIC ics.param
 ```
 
 # Gassphere
