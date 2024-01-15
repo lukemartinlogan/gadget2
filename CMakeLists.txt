@@ -366,3 +366,4 @@ endif()
 # Build Hermes Main Packages
 #-----------------------------------------------------------------------------
 add_subdirectory(Gadget2)
+add_subdirectory(N-GenIC)
