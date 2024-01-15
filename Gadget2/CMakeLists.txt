@@ -20,8 +20,8 @@ if (NOTYPEPREFIX_FFTW)
 elseif(DOUBLEPRECISION_FFTW)
     target_link_libraries(Gadget2 drfftw_mpi dfftw_mpi drfftw dfftw)
 else()
-    # target_link_libraries(Gadget2 srfftw_mpi sfftw_mpi srfftw sfftw)
-    target_link_libraries(Gadget2 fftw3 fftw3_mpi)
+    target_link_libraries(Gadget2 srfftw_mpi sfftw_mpi srfftw sfftw)
+    # target_link_libraries(Gadget2 fftw3 fftw3_mpi)
 endif()
 
 # Various compile-time options

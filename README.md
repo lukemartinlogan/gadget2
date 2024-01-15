@@ -23,8 +23,16 @@ also built as apart of the CMake
 
 Install dependencies with spack
 ```
-spack install hdf5@1.14.1 gsl@2.1 fftw@3.3.8
-spack load hdf5@1.14.1 gsl@2.1 fftw@3.3.8
+spack install hdf5@1.14.1 gsl@2.1 fftw@2
+spack load hdf5@1.14.1 gsl@2.1 fftw@2
+```
+
+# N-GenIC
+```
+mkdir build
+cd build
+cmake ../ -DFFTW_PATH=$(spack find --format "{PREFIX}" fftw@2)
+# NOTE: fftw@2 does not have a nice integration with cmake
 ```
 
 # Gassphere
@@ -40,8 +48,6 @@ cd ../
 mkdir gassphere
 build/bin/Gadget2 Gadget2/parameterfiles/gassphere.param
 ```
-
-
 
   Please see the files in the directory `Documentation' for a 
   detailed discription of this simulation software. There you 

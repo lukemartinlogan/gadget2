@@ -13,8 +13,8 @@ if (NOTYPEPREFIX_FFTW)
 elseif(DOUBLEPRECISION_FFTW)
     target_link_libraries(NGenIC drfftw_mpi dfftw_mpi drfftw dfftw)
 else()
-    # target_link_libraries(NGenIC srfftw_mpi sfftw_mpi srfftw sfftw)
-    target_link_libraries(NGenIC fftw3 fftw3_mpi)
+    target_link_libraries(NGenIC srfftw_mpi sfftw_mpi srfftw sfftw)
+    # target_link_libraries(NGenIC fftw3 fftw3_mpi)
 endif()
 
 # Install gadget

@@ -7,6 +7,9 @@ project(gadget)
 option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" ON)
 option(BUILD_MPI_TESTS "Build tests which depend on MPI" ON)
 option(BUILD_OpenMP_TESTS "Build tests which depend on OpenMP" ON)
+set(FFTW_PATH "" CACHE STRING "Path to FFTW installation")
+include_directories(${FFTW_PATH}/include)
+link_directories(${FFTW_PATH}/lib)
 
 # - PERIODIC:
 #     Set this if you want to have periodic boundary conditions.
@@ -326,9 +329,9 @@ set(GADGET_REQUIRED_HDF5_VERSION 1.14.0)
 find_package(HDF5 ${GADGET_REQUIRED_HDF5_VERSION} REQUIRED)
 
 # FFTW
-pkg_check_modules(fftw3 REQUIRED fftw3)
-include_directories(${fftw3_INCLUDE_DIRS})
-link_directories(${fftw3_LIBRARY_DIRS})
+#pkg_check_modules(fftw3 REQUIRED fftw3)
+#include_directories(${fftw3_INCLUDE_DIRS})
+#link_directories(${fftw3_LIBRARY_DIRS})
 
 # GSL
 pkg_check_modules(gsl REQUIRED gsl)
