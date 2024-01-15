@@ -14,7 +14,6 @@ target_link_libraries(Gadget2
         hdf5::hdf5
         MPI::MPI_C gsl gslcblas m
 )
-target_compile_definitions(Gadget2 PRIVATE  HAVE_HDF5)
 if (NOTYPEPREFIX_FFTW)
     target_link_libraries(Gadget2 rfftw_mpi fftw_mpi rfftw fftw)
 elseif(DOUBLEPRECISION_FFTW)
@@ -25,21 +24,48 @@ else()
 endif()
 
 # Various compile-time options
+#--------------------------------------- Basic operation mode of code
 if (PERIODIC)
     target_compile_definitions(Gadget2 PRIVATE PERIODIC)
 endif()
 if (UNEQUALSOFTENINGS)
     target_compile_definitions(Gadget2 PRIVATE UNEQUALSOFTENINGS)
 endif()
+#--------------------------------------- Things that are always recommended
 if (PEANOHILBERT)
     target_compile_definitions(Gadget2 PRIVATE PEANOHILBERT)
 endif()
 if (WALLCLOCK)
     target_compile_definitions(Gadget2 PRIVATE WALLCLOCK)
 endif()
+#--------------------------------------- TreePM Options
+#--------------------------------------- Single/Double Precision
+if (DOUBLEPRECISION)
+    target_compile_definitions(Gadget2 PRIVATE DOUBLEPRECISION)
+endif()
+if (DOUBLEPRECISION_FFTW)
+    target_compile_definitions(Gadget2 PRIVATE DOUBLEPRECISION_FFTW)
+endif()
+#--------------------------------------- Time integration options
 if (SYNCHRONIZATION)
     target_compile_definitions(Gadget2 PRIVATE SYNCHRONIZATION)
 endif()
+
+if (FLEXSTEPS)
+    target_compile_definitions(Gadget2 PRIVATE FLEXSTEPS)
+endif()
+if (PSEUDOSYMMETRIC)
+    target_compile_definitions(Gadget2 PRIVATE PSEUDOSYMMETRIC)
+endif()
+if (NOSTOP_WHEN_BELOW_MINTIMESTEP)
+    target_compile_definitions(Gadget2 PRIVATE NOSTOP_WHEN_BELOW_MINTIMESTEP)
+endif()
+if (NOPMSTEPADJUSTMENT)
+    target_compile_definitions(Gadget2 PRIVATE NOPMSTEPADJUSTMENT)
+endif()
+#--------------------------------------- Output options
+target_compile_definitions(Gadget2 PRIVATE  HAVE_HDF5)
+#--------------------------------------- Glass making
 
 # Install gadget
 install(TARGETS Gadget2 DESTINATION bin)
