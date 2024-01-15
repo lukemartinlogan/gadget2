@@ -65,6 +65,10 @@ if (NOPMSTEPADJUSTMENT)
 endif()
 #--------------------------------------- Output options
 target_compile_definitions(Gadget2 PRIVATE  HAVE_HDF5)
+#--------------------------------------- Things for special behaviour
+if (NOGRAVITY)
+    target_compile_definitions(Gadget2 PRIVATE NOGRAVITY)
+endif()
 #--------------------------------------- Glass making
 
 # Install gadget
