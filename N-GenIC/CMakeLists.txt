@@ -17,5 +17,7 @@ else()
     # target_link_libraries(NGenIC fftw3 fftw3_mpi)
 endif()
 
+target_compile_definitions(NGenIC PRIVATE  NO64BITID)
+
 # Install gadget
 install(TARGETS NGenIC DESTINATION bin)
