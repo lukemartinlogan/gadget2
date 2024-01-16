@@ -41,7 +41,7 @@ option(WALLCLOCK "WALLCLOCK" OFF)
 #     not in a periodic box, then a FFT method for vacuum boundaries is
 #     employed, using an actual mesh with dimension twice(!) that
 #     specified by PMGRID.
-option(PMGRID "PMGRID" OFF)
+set(PMGRID OFF CACHE STRING "PMGRID")
 
 # - PLACEHIGHRESREGION:
 #     If this option is set (will only work together with PMGRID), then
@@ -288,6 +288,7 @@ option(FORCETEST "FORCETEST" OFF)
 option(MAKEGLASS "MAKEGLASS" OFF)
 
 option(CORRECT_CIC "CORRECT_CIC" OFF)
+option(PRODUCEGAS "PRODUCEGAS" OFF)
 
 #-----------------------------------------------------------------------------
 # Compiler Optimization

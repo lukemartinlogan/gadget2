@@ -39,6 +39,10 @@ if (WALLCLOCK)
     target_compile_definitions(Gadget2 PRIVATE WALLCLOCK)
 endif()
 #--------------------------------------- TreePM Options
+if (PMGRID)
+    message("WITH PMGRID: ${PMGRID}")
+    target_compile_definitions(Gadget2 PRIVATE PMGRID=${PMGRID})
+endif()
 #--------------------------------------- Single/Double Precision
 if (DOUBLEPRECISION)
     target_compile_definitions(Gadget2 PRIVATE DOUBLEPRECISION)

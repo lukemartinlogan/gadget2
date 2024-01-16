@@ -8,7 +8,7 @@
 int main() {
   int N = 16;
   long Ntot = N * N * N;
-  double BoxSize = 1000;
+  double BoxSize = 50000;
 
   struct io_header_1 header = {0};
   header.num_files = 1;
