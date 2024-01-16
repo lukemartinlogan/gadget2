@@ -287,6 +287,8 @@ option(FORCETEST "FORCETEST" OFF)
 #     evolved towards a glass with the sign of gravity reversed.
 option(MAKEGLASS "MAKEGLASS" OFF)
 
+option(CORRECT_CIC "CORRECT_CIC" OFF)
+
 #-----------------------------------------------------------------------------
 # Compiler Optimization
 #-----------------------------------------------------------------------------

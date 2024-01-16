@@ -1,4 +1,4 @@
-
+```
   *************************************************************
   *  GADGET-2   -  A code for collisionless and gasdynamical  *
   *                cosmological simulations                   *
@@ -9,6 +9,19 @@
   *  written by:   Volker Springel, MPA, (c) 2005             *
   *        	                                              *
   *************************************************************
+  
+  Please see the files in the directory `Documentation' for a 
+  detailed discription of this simulation software. There you 
+  should find the following files:
+
+  gadget2-paper.pdf - Discusses algorithmic aspects of the code
+
+  users-guide.pdf - Instructions for code usage
+
+  In addition, please use your browser to access the 
+  cross-referenced documentation of the source code, contained 
+  in the `html/' subdirectory (open the `index.html' file).
+```
 
 This repo is a fork of the Gadget2 code -- specifically Gadget 2.0.7.
 It was downloaded from [here](https://wwwmpa.mpa-garching.mpg.de/gadget/).
@@ -54,15 +67,3 @@ cd ../
 mkdir gassphere
 build/bin/Gadget2 Gadget2/parameterfiles/gassphere.param
 ```
-
-  Please see the files in the directory `Documentation' for a 
-  detailed discription of this simulation software. There you 
-  should find the following files:
-
-  gadget2-paper.pdf - Discusses algorithmic aspects of the code
-
-  users-guide.pdf - Instructions for code usage
-
-  In addition, please use your browser to access the 
-  cross-referenced documentation of the source code, contained 
-  in the `html/' subdirectory (open the `index.html' file).
